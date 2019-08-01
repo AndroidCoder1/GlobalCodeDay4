@@ -11,6 +11,7 @@ public class FileManipulation {
     public static void main(String[] args) {
 
         FileManipulation fm = new FileManipulation();
+
         //Specifying Path to file
         Path path = Paths.get("fp.txt");
 
@@ -45,12 +46,12 @@ public class FileManipulation {
         return null;
     }
 
-    private static int countWordsInString(String content){
-        String[] words = content.split(" ");
+    static int countWordsInString(String content){
+        String[] words = content.replaceAll("( )+", " ").split(" ");
         return words.length;
     }
 
-    private static int countWordsMoreThan5Characters(String content){
+    static int countWordsMoreThan5Characters(String content){
         String[] words = content.split(" ");
         int count = 0;
         for(String word : words){
@@ -70,6 +71,7 @@ public class FileManipulation {
 
         System.out.println(counts);
 
+        //Creating a list of distinct numbers in a list
         HashSet<Integer> distinctSet = new HashSet<>(counts);
         for (int number : distinctSet){
             int occurrence = Collections.frequency(counts, number);
