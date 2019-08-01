@@ -16,13 +16,15 @@ public class FileManipulation {
 
         String contents = fm.readFromLocalFile(path);
 
-        System.out.println("File Contents::::"+contents);
+        if(contents != null) {
 
-        System.out.println("Number of Words in File::::"+countWordsInString(contents));
-        System.out.println("Number of Words more than 5 characters::::"+countWordsMoreThan5Characters(contents));
+            System.out.println("File Contents::::" + contents);
+            System.out.println("Number of Words in File::::" + countWordsInString(contents));
+            System.out.println("Number of Words more than 5 characters::::" + countWordsMoreThan5Characters(contents));
 
-        //Printout of items and their frequencies
-        createHistogram(contents);
+            //Printout of items and their frequencies
+            createHistogram(contents);
+        }
     }
 
     private String readFromLocalFile(Path path) {
