@@ -12,19 +12,26 @@ public class FileManipulation {
 
     public static void main(String[] args) {
 
+        //Specifying Path to file
         Path path = Paths.get("fp.txt");
-        try(BufferedReader reader = Files.newBufferedReader(path); ) {
 
+        //Creating try with resource to prevent exceptions
+        try(BufferedReader reader = Files.newBufferedReader(path)) {
+
+            //Creating StringBuilder to hold contents of file
             StringBuilder stringBuilder = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
                 stringBuilder.append(line);
             }
             contents = stringBuilder.toString();
-            System.out.println(contents);
 
-            System.out.println(countWordsInString(contents));
-            System.out.println(countWordsMoreThan5Characters(contents));
+            System.out.println("File Contents::::"+contents);
+
+            System.out.println("Number of Words in File::::"+countWordsInString(contents));
+            System.out.println("Number of Words more than 5 characters::::"+countWordsMoreThan5Characters(contents));
+
+            //Printout of items and their frequencies
             createHistogram(contents);
 
         } catch (Exception e){
